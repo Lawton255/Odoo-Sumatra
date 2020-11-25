@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!--Tree view-->
+    <record id="sumatra_tree_view" model="ir.ui.view">
+         <field name="model">sumatra.sumatra</field>
+        <field name="arch" type="xml">
+            <tree string="Trucks Sumatra">
+                <field name="receipt_no" />
+                <field name="truck" />
+                <field name="issue_date" />
+                <field name="exp_date" />
+                <field name="amount" string="Total Amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Form view-->
+    <record id="sumatra_view_form" model="ir.ui.view">
+        <field name="name">sumatra.sumatra.view.form</field>
+        <field name="model">sumatra.sumatra</field>
+        <field name="arch" type="xml">
+            <form string="Sumatra">
+                <sheet>
+                    <group col="2" string="Truck's Sumatra informations">
+                        <field name="truck" />
+                        <field name="licence_no"/>
+                        <field name="file_ref_no" />
+                        <field name="receipt_no" />
+                        <field name="amount" />
+                        <field name="issue_date" />
+                        <field name="exp_date" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Menu action-->
+    <record id="sumatra_menu_action" model="ir.actions.act_window">
+         <field name="name">Sumatra</field>
+        <field name="res_model">sumatra.sumatra</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create"> Create Truck Sumatra Records
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="sumatra_menu"
+        name="Truck Sumatra new"
+        sequence="2"/>
+    <menuitem
+        id="sub_sumatra_menu"
+        name="Sumatra"
+        action="sumatra_menu_action"
+        parent="sumatra_menu"
+        sequence="1"/>
+    </data>
+</odoo>
