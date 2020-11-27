@@ -2,28 +2,27 @@
 <odoo>
     <data>
     <!--Tree view-->
-    <record id="sumatra_tree_view" model="ir.ui.view">
-         <field name="model">sumatra.sumatra</field>
+    <record id="sumatra_truck_tree_view" model="ir.ui.view">
+         <field name="model">sumatra.truck</field>
         <field name="arch" type="xml">
             <tree string="Trucks Sumatra">
-                <field name="receipt_no" />
-                <field name="truck" />
+                <field name="licence_plate" />
                 <field name="issue_date" />
                 <field name="exp_date" />
-                <field name="amount" string="Total Amount"/>
+                <field name="amount" string="Total Amount" sum="Total"/>
             </tree>
         </field>
     </record>
 
     <!--Form view-->
-    <record id="sumatra_view_form" model="ir.ui.view">
-        <field name="name">sumatra.sumatra.view.form</field>
-        <field name="model">sumatra.sumatra</field>
+    <record id="sumatra_truck_view_form" model="ir.ui.view">
+        <field name="name">sumatra.truck.view.form</field>
+        <field name="model">sumatra.truck</field>
         <field name="arch" type="xml">
             <form string="Sumatra">
                 <sheet>
                     <group col="2" string="Truck's Sumatra informations">
-                        <field name="truck" />
+                        <field name="licence_plate" />
                         <field name="licence_no"/>
                         <field name="file_ref_no" />
                         <field name="receipt_no" />
@@ -37,9 +36,9 @@
     </record>
 
     <!--Menu action-->
-    <record id="sumatra_menu_action" model="ir.actions.act_window">
+    <record id="sumatra_truck_menu_action" model="ir.actions.act_window">
          <field name="name">Sumatra</field>
-        <field name="res_model">sumatra.sumatra</field>
+        <field name="res_model">sumatra.truck</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
@@ -56,7 +55,7 @@
     <menuitem
         id="sub_sumatra_menu"
         name="Sumatra"
-        action="sumatra_menu_action"
+        action="sumatra_truck_menu_action"
         parent="sumatra_menu"
         sequence="1"/>
     </data>
